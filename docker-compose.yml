@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  status-db:
+    image: bitnami/postgresql
+    volumes:
+      - status-db-volume:/bitnami/postgresql
+    ports:
+      - 5004:5432
+    environment:
+      - POSTGRESQL_USERNAME=status-db-read-write
+      - POSTGRESQL_PASSWORD=4b0c9f4a-9c1e-4f52-9a2c-2b3a1f5e9d67
+      - POSTGRESQL_DATABASE=status-db
+
+volumes:
+  status-db-volume:

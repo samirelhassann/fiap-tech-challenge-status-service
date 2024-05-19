@@ -1,0 +1,35 @@
+@host = http://localhost:3004
+@service-prefix = status-service
+# @host = http://localhost:31100
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiQ0xJRU5UIiwic3ViIjoiZTlmZDhhZjItZGQzYi00ZDUwLThjODMtMDIxZjhlMGQ3OTkzIiwiaWF0IjoxNzEwODYyMzcwLCJleHAiOjE3MTA5NDg3NzB9.B8KdObtHjMTapDpGZRhOBjt6f-Igwu_9_MxqMk6wmRs
+
+###
+
+# @name get-orders-queue
+GET {{host}}/{{service-prefix}}/queue
+
+
+### 
+
+
+# @name update-order-status
+PATCH {{host}}/{{service-prefix}}/6e2db61a-d128-423d-939b-f979085d2cc9
+content-type: application/json
+
+{
+  "status": "READY"
+}
+
+### 
+
+# @name webhook
+POST {{host}}/{{service-prefix}}/orders/webhook
+content-type: application/json
+
+{
+  "resource": "https://api.mercadolibre.com/merchant_orders/15308297344",
+  "topic": "merchant_order"
+}
+
+

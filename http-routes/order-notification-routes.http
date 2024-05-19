@@ -1,0 +1,6 @@
+@host = http://localhost:3004
+@service-prefix = status-service
+# @host = http://localhost:31100
+
+# @name get-orders-notifications
+GET {{host}}/{{service-prefix}}/order-notifications

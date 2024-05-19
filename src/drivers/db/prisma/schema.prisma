@@ -1,0 +1,48 @@
+generator user {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum OrderStatusEnum {
+  PENDING_PAYMENT
+  RECEIVED
+  IN_PREPARATION
+  READY
+  DELIVERED
+  COMPLETED
+  CANCELLED
+}
+
+enum NotificationStatus {
+  PENDING
+  SENT
+}
+
+model OrderStatus {
+  id         String          @id @default(uuid())
+  order_id   String
+  user_id    String?
+  status     OrderStatusEnum
+  actual     Boolean
+  created_at DateTime        @default(now())
+  updated_at DateTime?       @updatedAt
+
+  @@map("order_status")
+}
+
+model OrderNotification {
+  id         String             @id @default(uuid())
+  order_id   String
+  user_id    String
+  message    String
+  status     NotificationStatus
+  created_at DateTime           @default(now())
+  updated_at DateTime?          @updatedAt
+
+  @@map("order_notifications")
+}
