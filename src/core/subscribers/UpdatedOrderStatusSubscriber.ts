@@ -17,8 +17,10 @@ export class UpdatedOrderStatusSubscriber implements EventHandler {
     );
   }
 
-  private async sendNewOrderNotification({ orderStatus: order }: UpdatedOrderStatusEvent) {
-    if (!order.clientId) return;
+  private async sendNewOrderNotification({
+    orderStatus: order,
+  }: UpdatedOrderStatusEvent) {
+    if (!order.userId) return;
 
     const statusMessages: Partial<Record<OrderStatusEnum, string>> = {
       [OrderStatusEnum.PENDING_PAYMENT]:
@@ -35,7 +37,7 @@ export class UpdatedOrderStatusSubscriber implements EventHandler {
 
     if (message) {
       await this.orderNotificationUseCase.createOrderNotification({
-        clientId: order.clientId.toString(),
+        userId: order.userId.toString(),
         orderId: order.id.toString(),
         message,
       });

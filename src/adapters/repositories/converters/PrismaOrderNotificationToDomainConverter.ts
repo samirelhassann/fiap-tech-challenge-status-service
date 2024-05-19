@@ -12,7 +12,7 @@ export class PrismaOrderNotificationToDomainConverter {
           name: prismaClient.status as NotificationStatusEnum,
         }),
         orderId: new UniqueEntityId(prismaClient.order_id),
-        clientId: new UniqueEntityId(prismaClient.client_id),
+        userId: new UniqueEntityId(prismaClient.user_id),
         message: prismaClient.message,
         createdAt: prismaClient.created_at,
         updatedAt: prismaClient.updated_at ?? undefined,

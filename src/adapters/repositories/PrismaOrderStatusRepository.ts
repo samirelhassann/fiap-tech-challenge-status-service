@@ -1,3 +1,4 @@
+import { DomainEvents } from "@/core/domain/base/events/DomainEvents";
 import { OrderStatus } from "@/core/domain/entities/OrderStatus";
 import { OrderStatusValue } from "@/core/domain/valueObjects/OrderStatusValue";
 import { IOrderStatusRepository } from "@/core/interfaces/repositories/IOrderStatusRepository";
@@ -51,6 +52,8 @@ export class PrismaOrderStatusRepository implements IOrderStatusRepository {
       },
     });
 
+    DomainEvents.dispatchEventsForAggregate(order.id);
+
     return PrismaOrderStatusToDomainConverter.convert(createdOrderStatus);
   }
 
@@ -63,6 +66,8 @@ export class PrismaOrderStatusRepository implements IOrderStatusRepository {
         actual: order.actual,
       },
     });
+
+    DomainEvents.dispatchEventsForAggregate(order.id);
 
     return PrismaOrderStatusToDomainConverter.convert(updatedOrderStatus);
   }

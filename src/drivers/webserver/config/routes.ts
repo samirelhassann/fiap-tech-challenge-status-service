@@ -14,5 +14,7 @@ export function routes(app: FastifyInstance) {
   app.register(HealhCheckRoutes);
 
   app.register(OrderStatusRoutes, { prefix: `${SERVICE_PREFIX}` });
-  app.register(OrderNotificationRoutes, { prefix: "/order-notifications" });
+  app.register(OrderNotificationRoutes, {
+    prefix: `${SERVICE_PREFIX}/order-notifications`,
+  });
 }

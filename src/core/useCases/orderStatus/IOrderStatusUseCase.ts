@@ -15,6 +15,4 @@ export interface IOrderStatusUseCase {
   updateOrderStatus(
     props: UpdateOrderStatusUseCaseRequestDTO
   ): Promise<UpdateOrderStatusUseCaseResponseDTO>;
-
-  // orderWebhook(props: OrderWebHookUseCaseRequestDTO): Promise<void>;
 }
