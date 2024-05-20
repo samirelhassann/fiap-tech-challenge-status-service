@@ -4,12 +4,10 @@ metadata:
   name: api-config
   labels:
     name: api-config
+  namespace: status-service
 data:
   POSTGRES_URL: ""
-  MERCADO_PAGO_GENERATE_PAYMENT: ""
-  MERCADO_PAGO_WEBHOOK_URL: ""
-  MERCADO_PAGO_API_HOST: ""
-  MERCADO_PAGO_BEARER_TOKEN: ""
-  MERCADO_PAGO_USER_ID: ""
-  MERCADO_PAGO_EXTERNAL_POS_ID: ""
   JWT_SECRET: ""
+  USER_SERVICE_URL: ""
+  ORDER_SERVICE_URL: ""
+  
