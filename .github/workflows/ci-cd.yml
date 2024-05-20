@@ -145,4 +145,5 @@ jobs:
         run: |
           export KUBECONFIG=${{ github.workspace }}/kubeconfig
           kubectl apply -f ./deploy/
+          kubectl rollout restart deployment/deployment-api -n status-service
 
