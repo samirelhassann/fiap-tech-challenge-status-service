@@ -11,7 +11,7 @@ export class OrderStatusController {
   constructor(
     private orderStatusUseCase: IOrderStatusUseCase,
     private getOrdersQueueFormatedPresenter: GetOrdersQueueFormatedPresenter,
-    private updateOrderStatusPresenter: UpdateOrderStatusPresenter // private orderWebHookPresenter: OrderWebHookPresenter
+    private updateOrderStatusPresenter: UpdateOrderStatusPresenter
   ) {}
 
   async getOrdersQueueFormated(
@@ -45,13 +45,4 @@ export class OrderStatusController {
         this.updateOrderStatusPresenter.convertErrorResponse(error, res)
       );
   }
-
-  // async webhook(req: FastifyRequest, res: FastifyReply): Promise<void> {
-  //   return this.orderUseCase
-  //     .orderWebhook(this.orderWebHookPresenter.convertToUseCaseDTO(req))
-  //     .then(() => this.orderWebHookPresenter.sendResponse(res))
-  //     .catch((error) =>
-  //       this.orderWebHookPresenter.convertErrorResponse(error, res)
-  //     );
-  // }
 }
