@@ -20,6 +20,7 @@ const envSchema = z.object({
   RABBITMQ_USER: z.string(),
   RABBITMQ_PASSWORD: z.string(),
   RABBITMQ_PENDING_PAYMENT_QUEUE: z.string(),
+  RABBITMQ_PAID_PAYMENT_QUEUE: z.string(),
 });
 
 const _env = envSchema.safeParse(process.env);

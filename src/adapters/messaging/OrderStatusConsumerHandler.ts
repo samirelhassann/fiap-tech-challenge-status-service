@@ -31,4 +31,23 @@ export class OrderStatusConsumerHandler {
       this.messageQueueService.acknowledgeMessage(message);
     }
   }
+
+  async handlePaidPaymentOrderMessage(message: ConsumeMessage | null) {
+    if (!message) {
+      return;
+    }
+
+    try {
+      const { orderId } = pendingPaymentOrderMessageSchema.parse(
+        JSON.parse(message.content.toString())
+      );
+
+      await this.orderStatusUseCase.updateOrderStatus({
+        id: orderId,
+        status: OrderStatusEnum.IN_PREPARATION,
+      });
+    } finally {
+      this.messageQueueService.acknowledgeMessage(message);
+    }
+  }
 }

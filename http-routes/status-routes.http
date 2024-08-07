@@ -14,11 +14,11 @@ GET {{host}}/{{service-prefix}}/queue
 
 
 # @name update-order-status
-PATCH {{host}}/{{service-prefix}}/e87987d0-552f-4562-ac84-647965c4dc85
+PATCH {{host}}/{{service-prefix}}/b8eb985d-9505-4020-ac7d-aaf4c36a7430
 content-type: application/json
 
 {
-  "status": "READY"
+  "status": "IN_PREPARATION"
 }
 
 ### 

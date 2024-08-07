@@ -27,4 +27,11 @@ export async function OrderStatusMessaging() {
       orderStatusConsumerHandler
     )
   );
+
+  rabbitMQService.consume(
+    env.RABBITMQ_PAID_PAYMENT_QUEUE,
+    orderStatusConsumerHandler.handlePaidPaymentOrderMessage.bind(
+      orderStatusConsumerHandler
+    )
+  );
 }
