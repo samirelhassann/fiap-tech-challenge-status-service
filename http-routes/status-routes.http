@@ -14,7 +14,7 @@ GET {{host}}/{{service-prefix}}/queue
 
 
 # @name update-order-status
-PATCH {{host}}/{{service-prefix}}/6e2db61a-d128-423d-939b-f979085d2cc9
+PATCH {{host}}/{{service-prefix}}/e87987d0-552f-4562-ac84-647965c4dc85
 content-type: application/json
 
 {

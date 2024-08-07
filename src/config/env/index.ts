@@ -11,6 +11,15 @@ const envSchema = z.object({
   JWT_SECRET: z.string(),
   ORDER_SERVICE_URL: z.string(),
   USER_SERVICE_URL: z.string(),
+
+  SWAGGER_DOCS_URL: z.string().default("/docs-swagger"),
+  REDOC_URL: z.string().default("/docs"),
+
+  RABBITMQ_URL: z.string(),
+  RABBITMQ_PORT: z.string(),
+  RABBITMQ_USER: z.string(),
+  RABBITMQ_PASSWORD: z.string(),
+  RABBITMQ_PENDING_PAYMENT_QUEUE: z.string(),
 });
 
 const _env = envSchema.safeParse(process.env);

@@ -3,6 +3,7 @@ import fastify from "fastify";
 import { cookieConfig } from "./config/cookieConfig";
 import { errorHandling } from "./config/errorHandling";
 import { jwtConfig } from "./config/jwtConfig";
+import { messaging } from "./config/messaging";
 import { redocConfig } from "./config/redocConfig";
 import { routes } from "./config/routes";
 import { subscribers } from "./config/subscribers";
@@ -16,6 +17,7 @@ jwtConfig(app);
 cookieConfig(app);
 
 routes(app);
+messaging(app);
 errorHandling(app);
 
 subscribers();
